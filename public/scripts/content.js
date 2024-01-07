@@ -1,7 +1,3 @@
-if (window.location.href.includes("twitter.com")) {
-    console.log(getTwitterText())
-  }
-
 function getChildrenText(elem) {
     return Array.from(elem.children, ({textContent}) => trimAndJoin(textContent)).filter(Boolean).join(' ');
 }
@@ -53,3 +49,16 @@ function getYoutubeText() {
     
     return textArr;
 }
+
+console.log("Begin Wait")
+delayInMilliseconds = 5000; //1 second
+
+setTimeout(function() {
+    if (window.location.href.includes("twitter.com")) {
+        console.log(getTwitterText())
+    } else if (window.location.href.includes("facebook.com")) {
+        console.log(getFacebookText())
+    } else if (window.location.href.includes("instagram.com")) {
+        console.log(getInstagramText())
+    }
+}, delayInMilliseconds);
