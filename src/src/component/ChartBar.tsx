@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import "./bar-chart-style.css";
+import "./ChartBar.css";
 
 export const ChartBar= ({ title = "Title", level = 0, mode = "light"}) => {
     return (
