@@ -1,31 +1,29 @@
-import { Slider } from './Button';
 import './SettingBody.css'
+import { Slider } from './Button';
 
 function SettingBody() {
     return (
-        <div className='SettingBody'>
-            <div className='Content'>
-                <div className='Title'>Supported Sites</div>
-                <div className='Names'>
-                    <div className='Press'>X (Twitter) </div>
-                    <Slider stateProp='off' />
-                </div>
-                <div className='Names'>
-                    <div className='Press'>Instagram </div>
-                    <Slider stateProp='off' />
-                </div>
-                <div className='Names'>
-                    <div className='Press'>Facebook </div>
-                    <Slider stateProp='off' />
-                </div>
-                <div className='Names'>
-                    <div className='Title'>Manual Scanning</div>
-                    <Slider stateProp='off' />
-                </div>
-                <div className='Names'>
-                    <div className='Title'>Night Mode</div>
-                    <Slider stateProp='off' />
-                </div>
+        <div className='setting-body'>
+            <div className='title'>Supported Sites</div>
+            <div className='setting-bar-sm'>
+                <div className='subheading'>X (Twitter)</div>
+                <Slider stateProp="on" size="medium"/>
+            </div>
+            <div className='setting-bar-sm'>
+                <div className='subheading'>Instagram</div>
+                <Slider stateProp="on" size="medium"/>
+            </div>
+            <div className='setting-bar-sm'>
+                <div className='subheading'>Facebook</div>
+                <Slider stateProp="on" size="medium"/>
+            </div>
+            <div className='setting-bar-lg'>
+                <div className='subheading'>Manual Scanning</div>
+                <Slider stateProp="on" size="medium"/>
+            </div>
+            <div className='setting-bar-lg'>
+                <div className='subheading'>Night Mode</div>
+                <Slider stateProp="on" size="medium"/>
             </div>
         </div>
     );

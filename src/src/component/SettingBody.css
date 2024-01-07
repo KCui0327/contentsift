@@ -1,34 +1,45 @@
-.SettingBody {
-    width: 100%;
+.setting-body {
     height: 20rem;
     background: #ECECEC;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding: 1rem 6rem;
 }
 
-.SettingBody .Content {
-    padding: 0rem 2.125rem;
-}
-
-.SettingBody .Content .Title {
+.title {
     color: #000;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
-.SettingBody .Content .Names {
+.sites {
     color: #000;
     font-family: Inter;
-    font-size: 24px;
+    font-size: 1.5px;
+}
+
+.setting-bar-sm {
     display: flex;
     justify-content: space-between;
+    font-size: 1rem;
 }
 
-.SettingBody .Content .Names .Press {
-    padding: 0.25rem 2.125rem;
+.setting-bar-sm .subheading {
+    display: flex;
+    align-items: center;
 }
 
-.SettingBody .Content .Names .Press .Slider {
-    flex-shrink: 0;
+.setting-bar-lg {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
+
+.setting-bar-lg .subheading {
+    display: flex;
+    align-items: center;
+}
+

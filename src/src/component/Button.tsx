@@ -4,21 +4,17 @@ import "./Button.css";
 
 interface Props {
     stateProp: "off" | "on";
+    size: "small" | "medium" | "large";
 }
 
-export const Slider = ({ stateProp }: Props): JSX.Element => {
+export const Slider = ({ stateProp, size}: Props): JSX.Element => {
     const [state, dispatch] = useReducer(reducer, {
         state: stateProp || "off",
     });
 
     return (
-        <div
-            className={`slider ${state.state}`}
-            onClick={() => {
-                dispatch("click");
-            }}
-        >
-            <div className="ellipse" />
+        <div className={`${size}-slider ${state.state}`} onClick={() => {dispatch("click");}}>
+            <div className={`${size}-ellipse`} />
         </div>
     );
 };

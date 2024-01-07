@@ -1,10 +1,11 @@
-.slider {
+/*Large Slider*/
+.large-slider {
     border-radius: 1.813rem;
     height: 2.75rem;
     width: 5.938rem;
 }
 
-.slider .ellipse {
+.large-slider .large-ellipse {
     background-color: #ffffff;
     border-radius: 1.125rem;
     height: 2.25rem;
@@ -13,22 +14,58 @@
     width: 2.25rem;
 }
 
-.slider.off {
+.large-slider.off {
     background-color: #d9d9d9;
     transition: .2s;
 }
 
-.slider.on {
+.large-slider.on {
     background-color: #61b13b;
     transition: .2s;
 }
 
-.slider.off .ellipse {
+.large-slider.off .large-ellipse {
     left: 0.313rem;
     transition: .2s;
 }
 
-.slider.on .ellipse {
+.large-slider.on .large-ellipse {
     left: 3.438rem;
+    transition: .2s;
+}
+
+/*Medium Slider*/
+.medium-slider {
+    border-radius: 1rem;
+    height: 2rem;
+    width: 4rem;
+}
+
+.medium-slider .medium-ellipse {
+    background-color: #ffffff;
+    border-radius: 1.125rem;
+    height: 1.75rem;
+    position: relative;
+    top: 0.12rem;
+    width: 1.75rem;
+}
+
+.medium-slider.off {
+    background-color: #d9d9d9;
+    transition: .2s;
+}
+
+.medium-slider.on {
+    background-color: #61b13b;
+    transition: .2s;
+}
+
+.medium-slider.off .medium-ellipse {
+    left: 0.3rem;
+    transition: .2s;
+}
+
+.medium-slider.on .medium-ellipse {
+    left: 2.05rem;
     transition: .2s;
 }

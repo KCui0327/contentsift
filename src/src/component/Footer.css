@@ -10,7 +10,21 @@
     justify-content: space-evenly;
 }
   
-.icon-button {
+.icon-button-light {
     padding: 1rem 5rem;
+    flex-grow: 1;
+}
+
+.icon-button-dark {
+    padding: 1rem 5rem;
+    flex-grow: 1;
+}
+
+.icon-button-light:hover {
+    background-color: #d9d9d9;
+}
+
+.icon-button-dark:hover {
+    background-color: #353535;
 }
   

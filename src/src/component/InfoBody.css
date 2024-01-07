@@ -1,20 +1,21 @@
-.InfoBody {
+.info-content {
     width: 100%;
-    height: 18rem;
+    height: 20rem;
     background: #ECECEC;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.Content .Title {
+.info-content .title {
     color: #000;
     text-align: center;
     font-family: Inter;
     font-size: 24px;
+    font-weight: 700;
 }
 
-.Content .Names {
+.info-content .names {
     color: #000;
     text-align: center;
     font-family: Inter;

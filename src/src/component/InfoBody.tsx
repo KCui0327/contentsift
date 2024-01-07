@@ -2,17 +2,17 @@ import './InfoBody.css'
 
 function InfoBody() {
     return (
-        <div className='InfoBody'>
-            <div className='Content'>
-                <div className='Title'>Developed by:</div>
-                <div className='Names'>
+        <div className='info-body'>
+            <div className='info-content'>
+                <div className='title'>Developed by:</div>
+                <div className='names'>
                     Aden <br />
                     Kenny <br />
                     William <br />
                     Raian <br />
                 </div>
-                <div className='Title'>for HackED 2024</div>
-                <div className='Title'>Icons by Font Awesome</div>
+                <div className='title'>for HackED 2024</div>
+                <div className='title'>Icons by Font Awesome</div>
             </div>
         </div>
     );
