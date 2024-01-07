@@ -1,7 +1,7 @@
 import './App.css';
 import { Footer } from './component/Footer';
 import Body from './component/Body';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InfoBody from './component/InfoBody';
 import { Slider } from './component/Button';
 
@@ -16,6 +16,15 @@ function App() {
     setThemeState(state)
   }
 
+  const [value, setValue] = useState<number>(0);
+  useEffect(() => {
+    chrome.storage.local.get(['totalCount'], (res) => {
+      setValue(res.totalCount);
+      console.log(res.totalCount);
+    })
+  })
+  
+
   return (
     <div className="App">
       <div className={`TitleBar-${themeState}`}>
@@ -24,7 +33,7 @@ function App() {
             <Slider stateProp="off" toggleThemeState ={(e, state) => toggleThemeState(e, state)}/>
         </div>
       </div>
-      {menuState === "home" && <><Body mode={themeState}/></>}
+      {menuState === "home" && <><Body mode={themeState} totalCount={value}/></>}
       {menuState === "info" && <><InfoBody mode={themeState}/></>}
       <Footer toggleState={(e, state) => toggleState(e, state)} mode={themeState} />
     </div>

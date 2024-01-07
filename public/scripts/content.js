@@ -1,3 +1,5 @@
+const storage = chrome.storage.local;
+
 function getChildrenText(elem) {
     return Array.from(elem.children, ({textContent}) => trimAndJoin(textContent)).filter(Boolean).join(' ');
 }
@@ -82,6 +84,7 @@ const callback = (mutationList, observer) => {
               for (const i of temp) {
                 if (!global_set.has(i)) {
                     global_set.add(i);
+                    storage.set({ ['totalCount']: global_set.size })
                     console.log(i)
                 }
               }
