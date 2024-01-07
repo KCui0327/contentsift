@@ -1,18 +1,16 @@
 import './App.css';
 import { ChartBar } from './component/ChartBar';
-import { Slider } from './component/ Button';
+import { Slider } from './component/Button';
 
 function App() {
   return (
     <div className="App">
-      <div className='App TitleBar'>
-        <div className='App TitleBar Title'>ContentSift</div>
-        <div className='App TitleBar Switch'>
+      <div className='TitleBar'>
+        <div className='Title'>ContentSift</div>
+        <div className='Switch'>
           <Slider stateProp="off"/>
         </div>
       </div>
-
-      <ChartBar title="Violence" level={7}/>
     </div>
   );
 }

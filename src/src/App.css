@@ -2,33 +2,27 @@
   width: 100%;
   height: 5.688rem;
   flex-shrink: 0;
-  background: #FFF;
+  background: #ECECEC;
 }
 
-.App .TitleBar {
+.TitleBar {
   width: 100%;
   height: 5.688rem;
-  flex-shrink: 0;
-  background: #FFF;
   display: flex;
   justify-content: space-between;
 }
 
-.App .TitleBar .Title {
-  flex-shrink: 0;
+.Title {
   color: #000;
   font-family: 'Inter', sans-serif;
   font-size: 42px;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
-  width: 16.25rem; 
-  height: 3.125rem; 
-  margin-top: 1.25rem;   
-  margin-left: 2rem;
+  margin: 1rem;
 }
 
-.App .TitleBar .Switch {
-  margin-top: 1.438rem;
-  margin-left: 28.813rem;
+.Switch {
+  margin-top: 1.5rem;
+  margin-right: 1rem;
 }
