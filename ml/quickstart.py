@@ -5,6 +5,7 @@ from azure.core.credentials import AzureKeyCredential
 from azure.core.exceptions import HttpResponseError
 from azure.ai.contentsafety.models import AnalyzeTextOptions
 import hashlib
+import requests
 
 app = Flask(__name__)
 
@@ -39,6 +40,34 @@ def analyze_text(text):
         return results
     except HttpResponseError as e:
         raise e
+    
+# Analyze claims and return False if they are false
+def analyze_with_claimbusters(text):
+    api_key = '2ab61f50b11d43128894c44592905cd4'
+    api_endpoint = f"https://idir.uta.edu/claimbuster/api/v2/query/fact_matcher/{text}"
+    request_headers = {"x-api-key": api_key}
+
+    try:
+        api_response = requests.get(url=api_endpoint, headers=request_headers)
+        if api_response.status_code == 200:
+            response_data = api_response.json()
+            justifications = response_data.get('justification', [])
+
+            if not justifications:
+                return "Not Enough Information for ClaimBusters API"
+
+            for item in justifications:
+                print(justifications)
+                if item.get("truth_rating") in ["False","Fake","Pants on Fire","FALSE"]:
+                    return False
+
+            return True
+        else:
+            return {"error": "Failed to get response from ClaimBusters API", "status_code": api_response.status_code}
+    except requests.RequestException as e:
+        return {"error": str(e)}
+
+
 
 @app.route('/analyze-text', methods=['POST'])
 # API endpoint to receive text and return analysis
@@ -54,8 +83,14 @@ def get_texts():
         for text in batch:
             text_hash = generate_hash(text)
             try:
-                analysis = analyze_text(text)
-                batch_results.append({"hash": text_hash, "text": text, "analysis": analysis})
+                azure_analysis = analyze_text(text)
+                claimbusters_result = analyze_with_claimbusters(text)
+                batch_results.append({
+                    "hash": text_hash, 
+                    "text": text, 
+                    "azure_analysis": azure_analysis,
+                    "claimbusters_analysis": claimbusters_result
+                })
             except HttpResponseError as e:
                 batch_results.append({"hash": text_hash, "text": text, "error": str(e)})
         all_results.extend(batch_results)
@@ -64,6 +99,6 @@ def get_texts():
 
 
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-
