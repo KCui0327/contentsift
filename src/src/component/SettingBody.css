@@ -1,22 +1,34 @@
 .SettingBody {
     width: 100%;
-    height: 18rem;
+    height: 20rem;
     background: #ECECEC;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
-.SettingBody .Title {
+.SettingBody .Content {
+    padding: 0rem 2.125rem;
+}
+
+.SettingBody .Content .Title {
     color: #000;
-    text-align: center;
     font-family: Inter;
     font-size: 24px;
 }
 
-.SettingBody .Names {
+.SettingBody .Content .Names {
     color: #000;
-    text-align: center;
     font-family: Inter;
     font-size: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.SettingBody .Content .Names .Press {
+    padding: 0.25rem 2.125rem;
+}
+
+.SettingBody .Content .Names .Press .Slider {
+    flex-shrink: 0;
 }
