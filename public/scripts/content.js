@@ -50,15 +50,47 @@ function getYoutubeText() {
     return textArr;
 }
 
-console.log("Begin Wait")
-delayInMilliseconds = 5000; //1 second
-
-setTimeout(function() {
+function getData() {
     if (window.location.href.includes("twitter.com")) {
-        console.log(getTwitterText())
+        return getTwitterText();
     } else if (window.location.href.includes("facebook.com")) {
-        console.log(getFacebookText())
+        return getFacebookText();
     } else if (window.location.href.includes("instagram.com")) {
-        console.log(getInstagramText())
+        return getInstagramText()
     }
-}, delayInMilliseconds);
+    return []
+}
+
+// Select the node that will be observed for mutations
+const targetNode = document.getElementsByTagName("body")[0];
+console.log(targetNode)
+
+// Options for the observer (which mutations to observe)
+const config = { attributes: true, childList: true, subtree: true };
+
+let global_set = new Set()
+let arr = []
+
+// Callback function to execute when mutations are observed
+const callback = (mutationList, observer) => {
+    for (const mutation of mutationList) {
+      if (mutation.type === "childList") {
+          let temp = getData();
+          const areArraysEqual = (temp, arr) => temp.length === arr.length 
+              && temp.every((value, index) => value === arr[index]);
+          if (!areArraysEqual(temp, arr)) {
+              for (const i of temp) {
+                if (!global_set.has(i)) {
+                    global_set.add(i);
+                    console.log(i)
+                }
+              }
+              arr = temp;
+          }
+      }
+    }
+};
+
+const observer = new MutationObserver(callback);
+
+observer.observe(targetNode, config);
