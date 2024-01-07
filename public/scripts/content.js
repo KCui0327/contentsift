@@ -62,6 +62,7 @@ const sendDataToBackend = async (data) => {
                 storage.set({['totalFlaggedCount'] : currentNumber});
 
                 var jsonObj = {}
+                jsonObj["text"] = responseData[0]["text"]
                 jsonObj["hate"] = responseData[0]["azure_analysis"][0]["severity"]
                 jsonObj["selfharm"] = responseData[0]["azure_analysis"][1]["severity"]
                 jsonObj["sexual"] = responseData[0]["azure_analysis"][2]["severity"]
@@ -103,6 +104,7 @@ let global_set = new Set()
 let arr = []
 storage.set({['totalFlaggedCount'] : 0});
 storage.set({['totalCount'] : 0});
+storage.set({'flaggedPosts' : []});
 
 // Callback function to execute when mutations are observed
 const callback = (mutationList, observer) => {

@@ -3,6 +3,7 @@ import { Footer } from './component/Footer';
 import Body from './component/Body';
 import { useEffect, useState } from 'react';
 import InfoBody from './component/InfoBody';
+import {ReportBody} from './component/ReportBody';
 import { Slider } from './component/Button';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 
   const [value, setValue] = useState<number>(0);
   const [value1, setValue1] = useState<number>(0);
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     chrome.storage.local.get(['totalCount'], (res) => {
       setValue(res.totalCount);
@@ -25,7 +27,10 @@ function App() {
 
     chrome.storage.local.get(['totalFlaggedCount'], (res) => {
       setValue1(res.totalFlaggedCount);
-      console.log(res.totalFlaggedCount)
+    })
+
+    chrome.storage.local.get(['flaggedPosts'], (res) => {
+      setPosts(res.flaggedPosts);
     })
   })
   
@@ -40,7 +45,8 @@ function App() {
       </div>
       {menuState === "home" && <><Body mode={themeState} totalCount={value} totalFlaggedCount={value1}/></>}
       {menuState === "info" && <><InfoBody mode={themeState}/></>}
-      <Footer toggleState={(e, state) => toggleState(e, state)} mode={themeState} />
+      {menuState === "report" && <><ReportBody mode={themeState} flaggedPosts={posts}/></>}
+      <Footer toggleState={(e, state) => toggleState(e, state)} mode={themeState}/>
     </div>
   );
 }

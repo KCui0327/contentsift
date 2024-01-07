@@ -3,10 +3,13 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@emotion/react": "^11.11.3",
+        "@emotion/styled": "^11.11.0",
         "@fortawesome/fontawesome-svg-core": "^6.5.1",
         "@fortawesome/free-regular-svg-icons": "^6.5.1",
         "@fortawesome/free-solid-svg-icons": "^6.5.1",
         "@fortawesome/react-fontawesome": "^0.2.0",
+        "@mui/material": "^5.15.3",
         "@testing-library/jest-dom": "^5.17.0",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
@@ -15,11 +18,13 @@
         "@types/react": "^18.2.47",
         "@types/react-dom": "^18.2.18",
         "axios": "^1.6.5",
+        "json-2-csv": "^5.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-scripts": "5.0.1",
         "react-switch": "^7.0.0",
         "typescript": "^4.9.5",
+        "use-chrome-storage": "^1.2.2",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
@@ -47,6 +52,7 @@
         ]
     },
     "devDependencies": {
+        "@types/chrome": "^0.0.256",
         "copy-webpack-plugin": "^11.0.0",
         "cross-env": "^7.0.3",
         "css-loader": "^6.8.1",

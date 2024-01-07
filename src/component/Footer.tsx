@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = (props) => {
                 : <FontAwesomeIcon icon={faCircleInfo} size="2x"/>
             }
           </div>
-          <div className={`icon-button-${props.mode} report-button`} onClick={(e) => props.toggleState(e, "info")}>
+          <div className={`icon-button-${props.mode} report-button`} onClick={(e) => props.toggleState(e, "report")}>
             {props.mode === "dark"
                 ? <FontAwesomeIcon icon={faFile} size="2x" inverse/>
                 : <FontAwesomeIcon icon={faFile} size="2x"/>

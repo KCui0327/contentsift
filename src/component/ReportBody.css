@@ -1,0 +1,39 @@
+.report-body-light {
+    padding: 1rem 3rem 1rem 5rem;
+    height: 14rem;
+    font-size: 1rem;
+    background: #ECECEC;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.report-instance-light {
+    padding: 0.5rem;
+    background: white;
+    border-radius: 1rem;
+    width: 25rem;
+    margin: 0.5rem;
+    color: #000;
+}
+
+.report-body-dark {
+    padding: 1rem 3rem 1rem 5rem;
+    height: 14rem;
+    font-size: 1rem;
+    background: #353535;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.report-instance-dark {
+    padding: 0.5rem;
+    background: #252525;
+    border-radius: 1rem;
+    width: 25rem;
+    margin: 0.5rem;
+    color: white;
+}

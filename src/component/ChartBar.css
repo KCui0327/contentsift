@@ -1,9 +1,9 @@
 .chart-bar {
     height: 1.875rem;
     position: relative;
-    margin: auto;
     display: flex;
     justify-content: flex-end;
+    margin-right: 1.5em;
 }
 
 .bar-elem {
