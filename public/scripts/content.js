@@ -72,6 +72,8 @@ const sendDataToBackend = async (data) => {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json', // Add Accept header
                 'Access-Control-Allow-Origin': '*', // This is not normally needed and may not solve the issue, but you can try adding it
+                'Access-Control-Allow-Methods': 'POST',
+                'Access-Control-Allow-Headers': 'Content-Type',
             },
             credentials: 'include',
             body: JSON.stringify({ texts: data }),
@@ -110,7 +112,8 @@ const callback = (mutationList, observer) => {
                 if (!global_set.has(i)) {
                     global_set.add(i);
                     storage.set({ ['totalCount']: global_set.size })
-                    console.log(sendDataToBackend(i));
+                    let newArr = [i];
+                    console.log(sendDataToBackend(newArr));
                 }
               }
               arr = temp;

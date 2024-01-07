@@ -10,7 +10,7 @@
       "default_popup": "index.html",
       "default_title": "Open the popup"
   },
-  "host_permissions": ["http://localhost:5000/*"],
+  "host_permissions": ["http://localhost:5173/*"],
   "icons": {
       "16": "logo192.png",
       "48": "logo192.png",

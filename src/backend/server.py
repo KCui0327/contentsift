@@ -9,8 +9,9 @@ import hashlib
 import requests
 
 app = Flask(__name__)
-CORS(app, origins=["http://localhost:5000"], supports_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['CORS_SUPPORTS_CREDENTIALS'] = True
+CORS(app)
 
 # Function generates a SHA-256 has for the given text
 def generate_hash(text):
