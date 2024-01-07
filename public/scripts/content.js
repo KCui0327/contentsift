@@ -12,38 +12,8 @@ function trimAndJoin(textContent) {
     }
 }
 
-function getInstagramText() {
-    const textCollection = document.getElementsByClassName("_ap3a _aaco _aacu _aacx _aad7 _aade");
-    var textArr = []
-    for (var i = 0; i < textCollection.length; i++) {
-        textArr.push(getChildrenText(textCollection[i]));
-    }
-    
-    return textArr;
-}
-
 function getTwitterText() {
     const textCollection = document.querySelectorAll("[data-testid='tweetText']");
-    var textArr = []
-    for (var i = 0; i < textCollection.length; i++) {
-        textArr.push(getChildrenText(textCollection[i]));
-    }
-    
-    return textArr;
-}
-
-function getFacebookText() {
-    const textCollection = document.getElementsByClassName("xdj266r x11i5rnm xat24cr x1mh8g0r x1vvkbs x126k92a");
-    var textArr = []
-    for (var i = 0; i < textCollection.length; i++) {
-        textArr.push(getChildrenText(textCollection[i]));
-    }
-    
-    return textArr;
-}
-
-function getYoutubeText() {
-    const textCollection = document.querySelectorAll("#content-text");
     var textArr = []
     for (var i = 0; i < textCollection.length; i++) {
         textArr.push(getChildrenText(textCollection[i]));
@@ -84,7 +54,39 @@ const sendDataToBackend = async (data) => {
         }
 
         const responseData = await response.json();
-        console.log(responseData);
+        var flagged = false
+        for (var i = 0; i < 3; i++) {
+            if (responseData[0]["azure_analysis"][i]["severity"] >= 2 || responseData[0]["claimbusters_analysis"] == false) {
+                var oldVal = await storage.get(['totalFlaggedCount']);
+                let currentNumber = parseInt(oldVal.totalFlaggedCount) + 1|| 1;
+                storage.set({['totalFlaggedCount'] : currentNumber});
+
+                var jsonObj = {}
+                jsonObj["hate"] = responseData[0]["azure_analysis"][0]["severity"]
+                jsonObj["selfharm"] = responseData[0]["azure_analysis"][1]["severity"]
+                jsonObj["sexual"] = responseData[0]["azure_analysis"][2]["severity"]
+                jsonObj["violence"] = responseData[0]["azure_analysis"][3]["severity"]
+                jsonObj["veracity"] = responseData[0]["claimbusters_analysis"]
+                
+                storage.get({flaggedPosts: []}, function (result) {
+                    var flaggedPosts = result.flaggedPosts;
+                    flaggedPosts.push({jsonObj: jsonObj});
+                    storage.set({flaggedPosts: flaggedPosts});
+                });
+
+                flagged = true
+                break;
+            }
+        }
+
+        
+        console.log("Analyzed Text: " + responseData[0]["text"] + 
+                    "\n\nHate: " + responseData[0]["azure_analysis"][0]["severity"] +
+                    "\nSelf-Harm: " + responseData[0]["azure_analysis"][1]["severity"]+ 
+                    "\nSexual: " + responseData[0]["azure_analysis"][2]["severity"]+ 
+                    "\nViolence: " + responseData[0]["azure_analysis"][3]["severity"]+
+                    "\nVeracity: " + responseData[0]["claimbusters_analysis"] +
+                    "\nFlagged: " + flagged)
     } catch (error) {
         console.error('Error sending data:', error);
     }
@@ -99,6 +101,8 @@ const config = { attributes: true, childList: true, subtree: true };
 
 let global_set = new Set()
 let arr = []
+storage.set({['totalFlaggedCount'] : 0});
+storage.set({['totalCount'] : 0});
 
 // Callback function to execute when mutations are observed
 const callback = (mutationList, observer) => {
@@ -113,7 +117,7 @@ const callback = (mutationList, observer) => {
                     global_set.add(i);
                     storage.set({ ['totalCount']: global_set.size })
                     let newArr = [i];
-                    console.log(sendDataToBackend(newArr));
+                    sendDataToBackend(newArr);
                 }
               }
               arr = temp;

@@ -17,10 +17,15 @@ function App() {
   }
 
   const [value, setValue] = useState<number>(0);
+  const [value1, setValue1] = useState<number>(0);
   useEffect(() => {
     chrome.storage.local.get(['totalCount'], (res) => {
       setValue(res.totalCount);
-      console.log(res.totalCount);
+    })
+
+    chrome.storage.local.get(['totalFlaggedCount'], (res) => {
+      setValue1(res.totalFlaggedCount);
+      console.log(res.totalFlaggedCount)
     })
   })
   
@@ -33,7 +38,7 @@ function App() {
             <Slider stateProp="off" toggleThemeState ={(e, state) => toggleThemeState(e, state)}/>
         </div>
       </div>
-      {menuState === "home" && <><Body mode={themeState} totalCount={value}/></>}
+      {menuState === "home" && <><Body mode={themeState} totalCount={value} totalFlaggedCount={value1}/></>}
       {menuState === "info" && <><InfoBody mode={themeState}/></>}
       <Footer toggleState={(e, state) => toggleState(e, state)} mode={themeState} />
     </div>

@@ -13,12 +13,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['CORS_SUPPORTS_CREDENTIALS'] = True
 CORS(app)
 
-# Function generates a SHA-256 has for the given text
-def generate_hash(text):
-    sha256_hash = hashlib.sha256()
-    sha256_hash.update(text.encode('utf-8'))
-    return sha256_hash.hexdigest()
-
 # Function batches of upto 10 texts
 def batch_texts(texts, batch_size=10):
     for i in range(0, len(texts), batch_size):
@@ -27,8 +21,8 @@ def batch_texts(texts, batch_size=10):
 
 # Function analyzes text using Azure Content Safety API
 def analyze_text(text):
-    key = os.environ["CONTENT_SAFETY_KEY"]
-    endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
+    key = '7e0ebdc6791843e0a6725df222b7413e'
+    endpoint = 'https://hacked2024.cognitiveservices.azure.com/'
     client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     request_options = AnalyzeTextOptions(text=text)
     
@@ -85,18 +79,16 @@ def get_texts():
     for batch in batch_texts(texts):
         batch_results = []
         for text in batch:
-            text_hash = generate_hash(text)
             try:
                 azure_analysis = analyze_text(text)
                 claimbusters_result = analyze_with_claimbusters(text)
                 batch_results.append({
-                    "hash": text_hash, 
                     "text": text, 
                     "azure_analysis": azure_analysis,
                     "claimbusters_analysis": claimbusters_result
                 })
             except HttpResponseError as e:
-                batch_results.append({"hash": text_hash, "text": text, "error": str(e)})
+                batch_results.append({"text": text, "error": str(e)})
         all_results.extend(batch_results)
 
     return jsonify(all_results)
