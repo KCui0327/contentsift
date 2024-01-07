@@ -1,62 +1,34 @@
 .App {
-  width: 584px;
-  height: 91px;
+  width: 100%;
+  height: 5.688rem;
   flex-shrink: 0;
   background: #FFF;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .App .TitleBar {
-  width: 584px;
-  height: 91px;
+  width: 100%;
+  height: 5.688rem;
   flex-shrink: 0;
   background: #FFF;
+  display: flex;
+  justify-content: space-between;
 }
 
-.Title {
+.App .TitleBar .Title {
   flex-shrink: 0;
   color: #000;
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 42px;
   font-style: normal;
   font-weight: 900;
   line-height: normal;
-  width: 260rem;
-  height: 50rem;
-  top: 20rem;
-  left: 32rem;
+  width: 16.25rem; 
+  height: 3.125rem; 
+  margin-top: 1.25rem;   
+  margin-left: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .TitleBar .Switch {
+  margin-top: 1.438rem;
+  margin-left: 28.813rem;
 }

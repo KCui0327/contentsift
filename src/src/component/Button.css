@@ -1,0 +1,30 @@
+.slider {
+    border-radius: 1.813rem;
+    height: 2.75rem;
+    width: 5.938rem;
+}
+
+.slider .ellipse {
+    background-color: #ffffff;
+    border-radius: 1.125rem;
+    height: 2.25rem;
+    position: relative;
+    top: 0.25rem;
+    width: 2.25rem;
+}
+
+.slider.off {
+    background-color: #d9d9d9;
+}
+
+.slider.on {
+    background-color: #61b13b;
+}
+
+.slider.off .ellipse {
+    left: 0.313rem;
+}
+
+.slider.on .ellipse {
+    left: 3.438rem;
+}
