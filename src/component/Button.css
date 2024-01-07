@@ -1,12 +1,11 @@
 /*Large Slider*/
-.large-slider {
+.slider {
     border-radius: 1.813rem;
     height: 2.75rem;
     width: 5.938rem;
 }
 
-.large-slider .large-ellipse {
-    background-color: #ffffff;
+.slider .ellipse {
     border-radius: 1.125rem;
     height: 2.25rem;
     position: relative;
@@ -14,58 +13,30 @@
     width: 2.25rem;
 }
 
-.large-slider.off {
+.slider.off {
     background-color: #d9d9d9;
     transition: .2s;
 }
 
-.large-slider.on {
-    background-color: #61b13b;
+.slider.on {
+    background-color: #000;
     transition: .2s;
 }
 
-.large-slider.off .large-ellipse {
+.slider.off .ellipse {
+    background-color: #FFF;
     left: 0.313rem;
     transition: .2s;
 }
 
-.large-slider.on .large-ellipse {
+.slider.on .ellipse {
+    background-color: #353535;
     left: 3.438rem;
     transition: .2s;
 }
 
-/*Medium Slider*/
-.medium-slider {
-    border-radius: 1rem;
-    height: 2rem;
-    width: 4rem;
-}
-
-.medium-slider .medium-ellipse {
-    background-color: #ffffff;
-    border-radius: 1.125rem;
-    height: 1.75rem;
-    position: relative;
-    top: 0.12rem;
-    width: 1.75rem;
-}
-
-.medium-slider.off {
-    background-color: #d9d9d9;
-    transition: .2s;
-}
-
-.medium-slider.on {
-    background-color: #61b13b;
-    transition: .2s;
-}
-
-.medium-slider.off .medium-ellipse {
-    left: 0.3rem;
-    transition: .2s;
-}
-
-.medium-slider.on .medium-ellipse {
-    left: 2.05rem;
-    transition: .2s;
+.ellipse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

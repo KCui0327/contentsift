@@ -1,4 +1,4 @@
-.body {
+.body-light {
     padding-top: 1rem;
     padding-bottom: 1rem;
     width: 100%;
@@ -11,22 +11,59 @@
     justify-content: space-evenly;
 }
 
-.info-box {
+.info-box-light {
     padding: 0rem 8rem;
     margin: 0.5rem;
     display: flex;
     justify-content: space-between;
 }
-.table-heading {
+.table-heading-light {
     text-align: center;
     color: #000;
     font-size: 1rem;
     font-weight: 700;
 }
 
-.header {
+.header-light {
     text-align: center;
     color: #000;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.body-dark {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    height: 18rem;
+    font-size: 1rem;
+    background: #282828;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.info-box-dark {
+    padding: 0rem 8rem;
+    margin: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.table-heading-dark {
+    text-align: center;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.table-value-dark {
+    color: #FFF;
+}
+
+.header-dark {
+    text-align: center;
+    color: #FFF;
     font-size: 1.5rem;
     font-weight: 900;
 }

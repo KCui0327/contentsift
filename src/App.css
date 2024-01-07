@@ -10,3 +10,50 @@
 .Body {
   background: #ECECEC;
 }
+
+.TitleBar-light {
+  background-color: #FFF;
+  height: 5.688rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Title-light {
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin: 1.5rem;
+}
+.TitleBar-dark {
+  background-color: #353535;
+  height: 5.688rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.TitleBar-dark {
+  width: 100%;
+  height: 5.688rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Title-dark{
+  color: #FFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  margin: 1.5rem;
+}
+
+.Switch {
+  margin: 1.5rem;
+}
+
+
+

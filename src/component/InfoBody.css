@@ -1,4 +1,4 @@
-.info-content {
+.info-content-light {
     width: 100%;
     height: 20rem;
     background: #ECECEC;
@@ -7,7 +7,7 @@
     justify-content: space-around;
 }
 
-.info-content .title {
+.title-light {
     color: #000;
     text-align: center;
     font-family: Inter;
@@ -15,8 +15,32 @@
     font-weight: 700;
 }
 
-.info-content .names {
+.names-light {
     color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+}
+
+.info-content-dark {
+    width: 100%;
+    height: 20rem;
+    background: #252525;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.title-dark {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.names-dark {
+    color: #FFF;
     text-align: center;
     font-family: Inter;
     font-size: 24px;
