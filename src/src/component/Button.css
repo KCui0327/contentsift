@@ -15,16 +15,20 @@
 
 .slider.off {
     background-color: #d9d9d9;
+    transition: .2s;
 }
 
 .slider.on {
     background-color: #61b13b;
+    transition: .2s;
 }
 
 .slider.off .ellipse {
     left: 0.313rem;
+    transition: .2s;
 }
 
 .slider.on .ellipse {
     left: 3.438rem;
+    transition: .2s;
 }
