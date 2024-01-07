@@ -14,7 +14,7 @@ type FooterProps = {
 export const Slider: React.FC<FooterProps> = (props) => {
     const [state, setState] = useState(props.stateProp);
     function toggleState(e: React.MouseEvent) {
-        if(state == "on") {
+        if(state === "on") {
             props.toggleThemeState(e, "light")
             setState("off")
         } else {

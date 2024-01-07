@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faGear, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import { faHouse, faFile, faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import "./Footer.css";
 
 type FooterProps = {
@@ -22,6 +22,12 @@ export const Footer: React.FC<FooterProps> = (props) => {
             {props.mode === "dark"
                 ? <FontAwesomeIcon icon={faCircleInfo} size="2x" inverse/>
                 : <FontAwesomeIcon icon={faCircleInfo} size="2x"/>
+            }
+          </div>
+          <div className={`icon-button-${props.mode} report-button`} onClick={(e) => props.toggleState(e, "info")}>
+            {props.mode === "dark"
+                ? <FontAwesomeIcon icon={faFile} size="2x" inverse/>
+                : <FontAwesomeIcon icon={faFile} size="2x"/>
             }
           </div>
         </div>        
