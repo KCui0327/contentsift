@@ -57,7 +57,6 @@ def analyze_with_claimbusters(text):
                 return "Not Enough Information for ClaimBusters API"
 
             for item in justifications:
-                print(justifications)
                 if item.get("truth_rating") in ["False","Fake","Pants on Fire","FALSE"]:
                     return False
 
