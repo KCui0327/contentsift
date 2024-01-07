@@ -1,15 +1,14 @@
 import './App.css';
-import { ChartBar } from './component/ChartBar';
-import { Slider } from './component/Button';
 import { Footer } from './component/Footer';
 import TitleBar from './component/TitleBar';
-import Body from './component/Body';
+import SettingBody from './component/SettingBody';
+// import InfoBody from './component/InfoBody';
 
 function App() {
   return (
     <div className="App">
       <TitleBar />
-      <Body />
+      <SettingBody />
       <Footer />
     </div>
   );

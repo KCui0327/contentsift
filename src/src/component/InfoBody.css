@@ -1,0 +1,22 @@
+.InfoBody {
+    width: 100%;
+    height: 18rem;
+    background: #ECECEC;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.Content .Title {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+}
+
+.Content .Names {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+}
