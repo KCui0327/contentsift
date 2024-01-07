@@ -63,6 +63,31 @@ function getData() {
     return []
 }
 
+
+const sendDataToBackend = async (data) => {
+    try {
+        const response = await fetch('http://localhost:5000/analyze-text', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json', // Add Accept header
+                'Access-Control-Allow-Origin': '*', // This is not normally needed and may not solve the issue, but you can try adding it
+            },
+            credentials: 'include',
+            body: JSON.stringify({ texts: data }),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const responseData = await response.json();
+        console.log(responseData);
+    } catch (error) {
+        console.error('Error sending data:', error);
+    }
+};
+
 // Select the node that will be observed for mutations
 const targetNode = document.getElementsByTagName("body")[0];
 console.log(targetNode)
@@ -85,7 +110,7 @@ const callback = (mutationList, observer) => {
                 if (!global_set.has(i)) {
                     global_set.add(i);
                     storage.set({ ['totalCount']: global_set.size })
-                    console.log(i)
+                    console.log(sendDataToBackend(i));
                 }
               }
               arr = temp;

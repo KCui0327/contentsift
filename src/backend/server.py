@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS, cross_origin
 import os
 from azure.ai.contentsafety import ContentSafetyClient
 from azure.core.credentials import AzureKeyCredential
@@ -8,6 +9,8 @@ import hashlib
 import requests
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:5000"], supports_credentials=True)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Function generates a SHA-256 has for the given text
 def generate_hash(text):
@@ -69,6 +72,7 @@ def analyze_with_claimbusters(text):
 
 
 @app.route('/analyze-text', methods=['POST'])
+@cross_origin()
 # API endpoint to receive text and return analysis
 def get_texts():
     data = request.json
@@ -95,8 +99,6 @@ def get_texts():
         all_results.extend(batch_results)
 
     return jsonify(all_results)
-
-
 
 
 if __name__ == '__main__':
