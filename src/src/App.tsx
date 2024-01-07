@@ -1,6 +1,7 @@
 import './App.css';
 import { ChartBar } from './component/ChartBar';
 import { Slider } from './component/Button';
+import { Footer } from './component/Footer';
 
 function App() {
   return (

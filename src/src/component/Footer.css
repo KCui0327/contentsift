@@ -1,0 +1,16 @@
+.footer-light {
+    background-color: #ECECEC;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.footer-dark {
+    background-color: #353535;
+    display: flex;
+    justify-content: space-evenly;
+}
+  
+.icon-button {
+    padding: 1rem 5rem;
+}
+  
