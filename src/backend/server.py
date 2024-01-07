@@ -21,8 +21,8 @@ def batch_texts(texts, batch_size=10):
 
 # Function analyzes text using Azure Content Safety API
 def analyze_text(text):
-    key = '7e0ebdc6791843e0a6725df222b7413e'
-    endpoint = 'https://hacked2024.cognitiveservices.azure.com/'
+    key = os.environ["CONTENT_SAFETY_KEY"]
+    endpoint = os.environ["CONTENT_SAFETY_ENDPOINT"]
     client = ContentSafetyClient(endpoint, AzureKeyCredential(key))
     request_options = AnalyzeTextOptions(text=text)
     
