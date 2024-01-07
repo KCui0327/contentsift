@@ -11,5 +11,11 @@
       "16": "logo192.png",
       "48": "logo192.png",
       "128": "logo192.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["scripts/content.js"]
+    }
+  ]
 }
