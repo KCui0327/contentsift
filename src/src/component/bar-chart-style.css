@@ -1,0 +1,41 @@
+.chart-bar-dark {
+    height: 30px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bar-elem {
+    height: 17px;
+    top: 3px;
+    width: 36px; 
+    margin: 2px;
+    margin-top:3px;
+}
+
+.bar-left-border {
+    border-radius: 50px 0px 0px 50px;
+    margin-left: 10px;
+}
+
+.bar-right-border {
+    border-radius: 0px 50px 50px 0px;
+    margin-right: 10px;
+}
+
+.elem-inactive {
+    background-color: #d9d9d9 !important; 
+}
+
+.bar-text {
+    color: #000000;
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    top: -4px;
+    white-space: nowrap; 
+}
+

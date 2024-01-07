@@ -1,5 +1,13 @@
 function getChildrenText(elem: Element) {
-    return Array.from(elem.children, ({textContent}) => textContent.trim()).filter(Boolean).join(' ');
+    return Array.from(elem.children, ({textContent}) => trimAndJoin(textContent)).filter(Boolean).join(' ');
+}
+
+function trimAndJoin(textContent: any) {
+    if (textContent == null) {
+        return "";
+    } else {
+        return textContent.trim();
+    }
 }
 
 function getInstagramText() {
@@ -41,3 +49,5 @@ function getYoutubeText() {
     
     return textArr;
 }
+
+export {}
