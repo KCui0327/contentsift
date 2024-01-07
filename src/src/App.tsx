@@ -1,8 +1,6 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import ToggleButton from './component/ Button';
-import { ChartBarLight } from './component/ChartBarLight';
+import { ChartBar } from './component/ChartBar';
 
 function App() {
   return (
@@ -10,6 +8,8 @@ function App() {
       <div className='TitleBar'>
         <div className='Title'>ContentSift</div>
       </div>
+
+      <ChartBar title="Violence" level={7}/>
     </div>
   );
 }
